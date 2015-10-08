@@ -14,7 +14,6 @@ addons:
             - gcc-4.8
             - gcc-4.9
             - gcc-5
-            - gcc-arm-none-eabi
             - qemu
 
 script:
