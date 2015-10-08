@@ -9,7 +9,7 @@
 # ::
 #
 #    NANOTEST_FOUND - Found the Nano Testing framework
-#    NANOTEST_INCLUDE_DIRS - Include directories
+#    NANOTEST_INCLUDE_DIR - Include directories
 #    NANOTEST_MAIN_SRC - Implementation of main()
 #
 #
@@ -19,7 +19,7 @@
 #
 #     enable_testing()
 #     find_package(NanoTest REQUIRED)
-#     include_directories(${NANOTEST_INCLUDE_DIRS} ${NANOTEST_INCLUDE_DIR})
+#     include_directories(${CMAKE_CURRENT_BINARY_DIR} ${NANOTEST_INCLUDE_DIR})
 #
 #
 # ::
