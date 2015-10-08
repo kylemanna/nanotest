@@ -15,9 +15,9 @@ typedef void (nanotest_func)(struct nanotest_unit* nanotest_local_ctx);
 
 struct nanotest_fail {
     unsigned int line;
-    const char *func;
-    char *file;
-    char *expr;
+    const char* func;
+    char* file;
+    char* expr;
 };
 
 struct nanotest_unit {
