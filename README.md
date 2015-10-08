@@ -8,7 +8,8 @@ The majority of the development can be done the developer's native machine (i.e.
 
 The unit test framework is designed to work on the microcontroller to aid in both development and verification and to enable things like built in self-tests (BISTs) and power on self-tests (POSTs).  The integrated self-tests could ship with the product and provides a framework for basic diagnostics.
 
-Additionally, this framework works run easily on [Travis-CI](https://travis-ci.org/kylemanna/nanotest)
+
+Continuous integration tools like [Travis-CI](https://travis-ci.org/kylemanna/nanotest) can (and should!) be employed to automate a series of tests instrumented by this framework.
 
 ## Demo
 
@@ -23,4 +24,4 @@ tl;dr;
 
 ## Examples
 
-See the [examples](https://github.com/kylemanna/nanotest) folders and associated READMEs.
+See the [examples](examples) folders and associated READMEs.
