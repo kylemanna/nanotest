@@ -11,14 +11,23 @@ addons:
         sources:
             - ubuntu-toolchain-r-test
         packages:
+            - libc6-i386
             - gcc-4.8
             - gcc-4.9
             - gcc-5
-            - qemu
+            - qemu-user
+
+cache: apt
+
+before_install:
+    - curl --retry 10 --retry-max-time 120 -L "https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q2-update/+download/gcc-arm-none-eabi-4_9-2015q2-20150609-linux.tar.bz2" | tar xfj -
+    - export TOOLCHAIN_PREFIX=$PWD/gcc-arm-none-eabi-4_9-2015q2
+
+before_script: $TOOLCHAIN_PREFIX/bin/arm-none-eabi-gcc --version
 
 script:
     - mkdir examples/build && pushd examples/build
     - cmake .. && make VERBOSE=1 && make test ARGS=-V
     - popd
     - mkdir examples/embedded/build && pushd examples/embedded/build
-    - cmake -DCMAKE_TOOLCHAIN_FILE=gcc_stm32.cmake .. && make VERBOSE=1 && make test ARGS=-V
+    - cmake -DTOOLCHAIN_PREFIX=$TOOLCHAIN_PREFIX -DCMAKE_TOOLCHAIN_FILE=gcc_stm32.cmake .. && make VERBOSE=1 && make test ARGS=-V
