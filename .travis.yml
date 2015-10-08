@@ -1,0 +1,25 @@
+language: c
+
+compiler:
+    - clang
+    - gcc-4.8
+    - gcc-4.9
+    - gcc-5
+
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - gcc-4.8
+            - gcc-4.9
+            - gcc-5
+            - gcc-arm-none-eabi
+            - qemu
+
+script:
+    - mkdir examples/build && pushd examples/build
+    - cmake .. && make VERBOSE=1 && make test ARGS=-V
+    - popd
+    - mkdir examples/embedded/build && pushd examples/embedded/build
+    - cmake -DCMAKE_TOOLCHAIN_FILE=gcc_stm32.cmake .. && make VERBOSE=1 && make test ARGS=-V
