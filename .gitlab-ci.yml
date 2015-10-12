@@ -1,0 +1,19 @@
+# Runs on:
+# * https://hub.docker.com/r/kylemanna/gitlab-runner-embedded/
+# * https://github.com/kylemanna/docker-gitlab-runner-embedded
+
+x86-gcc:
+  script:
+    - mkdir examples/build
+    - pushd examples/build
+    - cmake ..
+    - make
+    - make test ARGS=-V
+
+arm:
+  script:
+    - mkdir examples/embedded/build
+    - pushd examples/embedded/build
+    - cmake -DTOOLCHAIN_PREFIX=$TOOLCHAIN_PREFIX -DCMAKE_TOOLCHAIN_FILE=gcc_stm32.cmake ..
+    - make VERBOSE=1 
+    - make test ARGS=-V
