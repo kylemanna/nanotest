@@ -1,6 +1,8 @@
 # Runs on:
-# * https://hub.docker.com/r/kylemanna/gitlab-runner-embedded/
-# * https://github.com/kylemanna/docker-gitlab-runner-embedded
+# * https://hub.docker.com/r/kylemanna/ci-embedded
+# * https://github.com/kylemanna/docker-ci-embedded
+
+image: kylemanna/ci-embedded:latest
 
 x86-gcc:
   script:
