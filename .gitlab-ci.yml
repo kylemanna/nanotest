@@ -4,6 +4,9 @@
 
 image: kylemanna/ci-embedded:latest
 
+# Start no services
+services:
+
 x86-gcc:
   script:
     - mkdir examples/build
