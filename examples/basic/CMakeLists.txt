@@ -16,3 +16,8 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR} ${NANOTEST_INCLUDE_DIR})
 
 enable_testing()
 add_test(basic basic)
+
+if (UNIX)
+    add_test(NAME basic_memcheck
+             COMMAND valgrind --error-exitcode=1 ${CMAKE_CURRENT_BINARY_DIR}/basic)
+endif()
