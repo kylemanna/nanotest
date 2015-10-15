@@ -16,6 +16,7 @@ addons:
             - gcc-4.9
             - gcc-5
             - qemu-user
+            - valgrind
 
 cache: apt
 
