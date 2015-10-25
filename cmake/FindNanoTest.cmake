@@ -36,7 +36,11 @@
 set(NANOTEST_ROOT ${CMAKE_CURRENT_LIST_DIR}/..)
 
 find_path(NANOTEST_INCLUDE_DIR nanotest.h HINTS ${NANOTEST_ROOT})
-find_file(NANOTEST_MAIN_SRC nanotest_main.c HINTS ${NANOTEST_ROOT})
+if (UNIX)
+    find_file(NANOTEST_MAIN_SRC nanotest_getopt.c HINTS ${NANOTEST_ROOT})
+else()
+    find_file(NANOTEST_MAIN_SRC nanotest_main.c HINTS ${NANOTEST_ROOT})
+endif()
 
 function(generate_nanotest_header)
     set(GEN ${NANOTEST_ROOT}/generate_nanotest_header.py)
