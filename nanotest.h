@@ -27,6 +27,11 @@ struct nanotest_unit {
 };
 
 /*
+ * Usage: NANOTEST_DISABLED(suite, name) { ... }
+ */
+#define NANOTEST_DISABLED(s,n) void s##_##n(void)
+
+/*
  * Usage: NANOTEST(suite, name) { ... }
  */
 #define NANOTEST(s,n) void s##_##n(struct nanotest_unit*); \
